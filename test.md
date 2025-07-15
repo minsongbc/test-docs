@@ -37,42 +37,34 @@ Initialize는 두가지 방식으로 초기화할 수 있습니다.
 꼭 필요한 기능이 아니라면 Initialize로 충분합니다.
 
 ### RegisterMessageReceived
-
 `void RegisterMessageReceived(System.EventHandler<Firebase.Messaging.MessageReceivedEventArgs> onMessageReceived)`
 Notification이 도착했을때 호출되는 이벤트를 등록합니다.
 
 ### IsPermissionGranted
-
 `bool IsPermissionGranted()`
 현재 os에서 Notification 권한이 있는지 알 수 있습니다.
 
 ### GetPushToken
-
 `string GetPushToken()`
 PushToken를 가져옵니다.
 
 ### IsTokenInitialized()
-
 `bool IsTokenInitialized()`
 토큰이 초기화되었는지 유무를 확인합니다.
 
 ### RegisterPushToken
-
 `void RegisterPushToken(GaiaCallback<bool> gaiaCallback)`
 PushToken을 Notification 서버에 등록합니다. 호출하면 자동으로 서버에 등록하며, 서버에 등록했을때 성공, 실패 유무를 콜백으로 받을 수 있습니다. FCM Token의 만료 및 변경에 대응하기 위해 앱이 켜질때마다 꼭 등록해주어야 합니다.
 
 ### ActivatePushToken
-
 `void ActivatePushToken(GaiaCallback<bool> gaiaCallback)`
 Push Token을 Gaia Notification 서버로부터 활성화 하여 다시 푸시를 받을 수 있습니다.
 
 ### DeactivatePushToken
-
 `void DeactivatePushToken(GaiaCallback<bool> gaiaCallback)`
 Push Token을 Gaia Notification 서버로부터 비활성화 하여 푸시를 받지 않습니다.
 
 ### SetUserTag, SetUserTags
-
 `void SetUserTag(string tagKey, string tagValue, GaiaCallback<bool> gaiaCallback)`
 Push Token과 연결된 사용자의 단일 태그 (key, value) 를 설정합니다.
 
@@ -80,12 +72,10 @@ Push Token과 연결된 사용자의 단일 태그 (key, value) 를 설정합니
 Push Token과 연결된 사용자의 단일 태그들을 설정합니다.
 
 ### OpenNotificationSettings
-
 `void GaiaNotification.OpenNotificationSettings()`
 os에 알림 설정창으로 이동합니다. 이는 앱 내에서 권한을 요청하는것이 아닌 직접 설정창으로 이동하는 방식입니다.
 
 ## 주의사항들
-
 ### Firebase
 Gaia Notification은 내부적으로 FCM을 사용하고 있습니다. Firebase SDK가 제대로 초기화 되기 위해서는 Assets/google-services.json 파일이 존재해야 합니다.
 
