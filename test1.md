@@ -10,7 +10,167 @@ Gaia Core는 사내 유니티 프로젝트에서 사용하는 다양한 Gaia 파
 
 ## Interfaces
 
+### IsFirstRun
+`bool IsFirstRun`
+설치 후 첫번째 실행인지 확인하는 정보를 반환합니다. 삭제/재설치를 감지하지는 못합니다.
 
+#### Example
+```csharp
+var isFirstRun = Gaia.IsFirstRun;
+```
+
+### CurrentEnv
+`GaiaEnv CurrentEnv`
+현재 환경정보를 반환합니다. Gaia에서는 Alpha, QA, Production 타입을 지원합니다.
+
+#### Example
+```csharp
+var environment = Gaia.CurrentEnv;
+```
+
+### AppIdentifier
+`string AppIdentifier`
+App Identifier를 반환합니다.
+
+#### Example
+```csharp
+var identifier = Gaia.AppIdentifier;
+```
+
+### AppName
+`string AppName`
+GaiaConfiguration에 정의된 App Name을 반환합니다. 정의되어있지 않다면 AppIdentifier 정보를 반환합니다.
+
+#### Example
+```csharp
+var name = Gaia.AppName;
+```
+
+### AppVersion
+`string AppVersion`
+GaiaConfiguration에 정의된 App Version을 반환합니다. 정의되어있지 않다면 "0.0.0" 을 반환합니다.
+
+#### Example
+```csharp
+var version = Gaia.AppVersion;
+```
+
+### DeviceUniqueIdentifier
+`string DeviceUniqueIdentifier`
+세부적인 내용 작성필요.
+
+#### Example
+```csharp
+var uniqueIdentifier = Gaia.DeviceUniqueIdentifier;
+```
+
+### DeviceType
+`DeviceType DeviceType`
+세부적인 내용 작성필요.
+
+#### Example
+```csharp
+var type = Gaia.DeviceType;
+```
+
+### Locale
+`string Locale`
+Locale 정보를 반환합니다.
+
+#### Example
+```csharp
+var locale = Gaia.Locale;
+```
+
+### Offset
+`string offset`
+Time offset 정보를 반환합니다.
+
+#### Example
+```csharp
+var offset = Gaia.Offset;
+```
+
+### AppSecret
+`string AppSecret`
+App Secret Key를 반환합니다.
+
+#### Example
+```csharp
+var secret = Gaia.AppSecret;
+```
+
+### Settings
+`Settings Settings`
+SDK 세팅 정보를 가져옵니다.
+
+#### Example
+```csharp
+var settings = Gaia.Settings;
+```
+
+### AccessToken
+`string AccessToken`
+AccessToken을 반환합니다.
+
+#### Example
+```csharp
+var token = Gaia.AccessToken;
+```
+
+### RefreshToken
+`string RefreshToken`
+RefreshToken을 반환합니다.
+
+#### Example
+```csharp
+var token = Gaia.RefreshToken;
+```
+
+### IsExpiredAccessToken
+`bool IsExpiredAccessToken`
+AccessToken이 만료되었는지 정보를 반환합니다.
+
+#### Example
+```csharp
+var isExpired = Gaia.IsExpiredAccessToken;
+```
+
+### IsSessionActive
+`bool IsSessionActive`
+현재 세션이 활성화 되어있는지 정보를 반환합니다.
+
+#### Example
+```csharp
+var isActive = Gaia.IsSessionActive;
+```
+
+### IsSupportOfflineMode
+`bool IsSupportOfflineMode`
+Offline Mode를 지원하는지 유무를 반환합니다.
+
+#### Example
+```csharp
+var isSupportOffline = Gaia.IsSupportOfflineMode;
+```
+
+### EnableExternalDeviceId
+`bool EnableExternalDeviceId`
+External Device Id를 지원하는지 유무를 반환합니다. 일반적인 프로젝트는 GaiaAuthentication을 사용하기때문에 외부 정보를 사용하지 않겠지만 오래된 프로젝트 혹은 별도로 자체적인 Device Id를 사용할 수 있습니다.
+
+#### Example
+```csharp
+var enableExternalDeviceId = Gaia.EnableExternalDeviceId;
+```
+
+### EnableExternalUserId
+`bool EnableExternalUserId`
+External User Id를 지원하는지 유무를 반환합니다. 일반적인 프로젝트는 GaiaAuthentication을 사용하기때문에 외부 정보를 사용하지 않겠지만 오래된 프로젝트 혹은 별도로 자체적인 유저 인증서버의 User Id를 사용할 수 있습니다.
+
+#### Example
+```csharp
+var enableExternalUserId = Gaia.EnableExternalUserId;
+```
 
 ## 주의사항들
 ### Firebase
