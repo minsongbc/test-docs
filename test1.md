@@ -75,7 +75,7 @@ var type = Gaia.DeviceType;
 
 ### Locale
 `string Locale`
-Locale 정보를 반환합니다.
+현재 디바이스의 Locale 정보를 반환합니다.
 
 #### Example
 ```csharp
@@ -84,7 +84,7 @@ var locale = Gaia.Locale;
 
 ### Offset
 `string offset`
-Time offset 정보를 반환합니다.
+현재 디바이스의 Time offset 정보를 반환합니다.
 
 #### Example
 ```csharp
@@ -170,6 +170,32 @@ External User Id를 지원하는지 유무를 반환합니다. 일반적인 프�
 #### Example
 ```csharp
 var enableExternalUserId = Gaia.EnableExternalUserId;
+```
+
+### Initialize
+`void Initialize(GaiaConfiguration config)`
+Gaia Core SDK를 초기화 합니다. 다른 Gaia SDK들을 사용하기 위해서는 타 SDK보다 우선적으로 초기화해야합니다.
+
+#### Example
+```csharp
+var config = new GaiaConfiguration
+{
+    AppName = Application.productName,
+    AppVersion = Application.version
+};
+
+GaiaSDK.Core.Gaia.Initialize(config);
+```
+
+### ChangeEnv
+`void ChangeEnv(GaiaEnv targetEnv)`
+Environment를 변경합니다.
+
+#### Example
+```csharp
+Gaia.ChangeEnv(GaiaEnv.Alpha); // Alpha로 변경
+Gaia.ChangeEnv(GaiaEnv.QA); // QA로 변경
+Gaia.ChangeEnv(GaiaEnv.Production); // Production으로 변경
 ```
 
 ## 주의사항들
