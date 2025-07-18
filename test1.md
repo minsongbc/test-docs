@@ -198,12 +198,72 @@ Gaia.ChangeEnv(GaiaEnv.QA); // QA로 변경
 Gaia.ChangeEnv(GaiaEnv.Production); // Production으로 변경
 ```
 
-## 주의사항들
-### Firebase
-Gaia Notification은 내부적으로 FCM을 사용하고 있습니다. Firebase SDK가 제대로 초기화 되기 위해서는 Assets/google-services.json 파일이 존재해야 합니다.
+### SetDevelopmentDeviceId
+`void SetDevelopmentDeviceId(string fakeDeviceId)`
+설명필요
 
-### 자체 Authorization 사용
-Gaia Authentication을 사용하지 않고, 자체적인 인증 서버를 사용한다면 Gaia Core의 GaiaConfiguration(유니티 에셋)에서 `Enable External User Id` 설정을 체크 후, 아래와 같이 External User Id를 설정해야합니다.
+#### Example
+```csharp
+Gaia.SetDevelopmentDeviceId(id);
+```
+
+### UnsetDevelopmentDeviceId
+`void UnsetDevelopmentDeviceId()`
+설명필요
+
+#### Example
+```csharp
+Gaia.UnsetDevelopmentDeviceId();
+```
+
+### ResetGaiaData
+`void ResetGaiaData()`
+설명필요
+
+#### Example
+```csharp
+Gaia.ResetGaiaData();
+```
+
+### GetExternalUserId
+`string GetExternalUserId()`
+설정한 External User Id값을 가져옵니다. 이는 외부 인증서버를 사용하기위한 메소드이며 Enable External User Id가 true로 설정되어 있어야합니다.
+
+#### Example
+```csharp
+var userId = Gaia.GetExternalUserId();
+```
+
+### SetExternalUserId
+`void SetExternalUserId(string externalUserId)`
+External User Id를 설정합니다. 이는 외부 인증서버를 사용하기위한 메소드이며 Enable External User Id가 true로 설정되어 있어야합니다.
+
+#### Example
+```csharp
+Gaia.SetExternalUserId(userId);
+```
+
+### GetExternalDeviceId
+`string GetExternalDeviceId()`
+설정한 External Device Id값을 가져옵니다. 이는 외부 인증서버를 사용하기위한 메소드이며 Enable External Device Id가 true로 설정되어 있어야합니다.
+
+#### Example
+```csharp
+var deviceId = Gaia.GetExternalDeviceId();
+```
+
+### SetExternalDeviceId
+`void SetExternalDeviceId(string externalDeviceId)`
+External Device Id를 설정합니다. 이는 외부 인증서버를 사용하기위한 메소드이며 Enable External Device Id가 true로 설정되어 있어야합니다.
+
+#### Example
+```csharp
+Gaia.SetExternalDeviceId(deviceId);
+```
+
+## 주의사항들
+### Enable External User/Device Id
+외부 인증서버를 사용하여 UserId 혹은 DeviceId가 Gaia Authentication에서 제공하는 값과 다를경우에는 Enable External User Id, Enable External Device Id를 각각 필요에 따라서 true로 설정해줘야합니다. 다만 이 값은 코드상에서 수정하는값이 아닌, 유니티 ScriptableObject로 구성되어있는 asset에서 지정하는 값이기때문에 사용자가 코드상에서 수정할 수 없습니다.
 
 ```csharp
 GaiaSDK.Core.Gaia.SetExternalUserId("string");
