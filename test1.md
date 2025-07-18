@@ -264,13 +264,3 @@ Gaia.SetExternalDeviceId(deviceId);
 ## 주의사항들
 ### Enable External User/Device Id
 외부 인증서버를 사용하여 UserId 혹은 DeviceId가 Gaia Authentication에서 제공하는 값과 다를경우에는 Enable External User Id, Enable External Device Id를 각각 필요에 따라서 true로 설정해줘야합니다. 다만 이 값은 코드상에서 수정하는값이 아닌, 유니티 ScriptableObject로 구성되어있는 asset에서 지정하는 값이기때문에 사용자가 코드상에서 수정할 수 없습니다.
-
-```csharp
-GaiaSDK.Core.Gaia.SetExternalUserId("string");
-```
-
-### 팝업 권한요청 제한
-android와 ios에서는 유저들에게 권한 요청팝업을 지속적으로 노출시켜 UX를 방해하는것을 제한하기 위하여 1~2회 이후에는 더 이상 권한 요청 팝업을 띄우지 못하게 os레벨에서 제한하고 있습니다.
-
-### Android의 Mobile Notification FCM 설정
-Unity Mobile Notification에서 Android의 경우에는 FCM 설정을 위하여 Project Settings - Mobile Notifications에서 Use Custom Actitivty를 활성화 해야하고, `com.google.firebase.MessagingUnityPlayerActivity` 를 activity로 지정해주셔야 정상적으로 동작합니다.
